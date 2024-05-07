@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { useEffect, useRef } from "react";
-import createContainer from "../../Game/Ioc/CompositionRoot";
+import createContainer from "../../Game/Ioc/createContainer";
 import { Container } from "inversify";
 
 function Canvas() {
@@ -15,7 +15,9 @@ function Canvas() {
     };
   }, []);
 
-  return <></>;
+  return (
+    <canvas id="game-canvas" style={{ width: "100vw", height: "100vh" }} />
+  );
 }
 
 export default Canvas;
