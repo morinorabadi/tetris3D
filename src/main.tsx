@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './Game.tsx'
+import Canvas from './components/Canvas/Canvas.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Canvas />
   </React.StrictMode>,
 )
