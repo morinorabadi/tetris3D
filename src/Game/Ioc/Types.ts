@@ -6,4 +6,5 @@ export const TYPES = {
   Camera: Symbol.for("Camera"),
   Lights: Symbol.for("Lights"),
   Table: Symbol.for("Table"),
+  Step: Symbol.for("Step"),
 };
