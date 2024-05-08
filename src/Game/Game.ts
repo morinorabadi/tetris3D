@@ -23,5 +23,15 @@ export default class Game {
       testBox.rotation.y += 0.001;
       testBox.rotation.x += 0.002;
     });
+
+    this.setupEventListeners();
   }
+
+  private setupEventListeners() {
+    window.addEventListener("resize", this.onResize);
+  }
+
+  private onResize = () => {
+    this.engine.resize();
+  };
 }
