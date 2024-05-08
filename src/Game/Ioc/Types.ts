@@ -7,4 +7,5 @@ export const TYPES = {
   Lights: Symbol.for("Lights"),
   Table: Symbol.for("Table"),
   Step: Symbol.for("Step"),
+  CubeManager: Symbol.for("CubeManager"),
 };
