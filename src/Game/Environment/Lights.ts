@@ -9,7 +9,7 @@ export default class Lights {
       new Vector3(0, -1, 0)
     );
     hemispheric.intensity = 0.3;
-    hemispheric.groundColor = Color3.FromInts(255, 255, 255);
-    hemispheric.groundColor = Color3.FromInts(127, 127, 127);
+    hemispheric.groundColor = Color3.White()
+    hemispheric.groundColor = Color3.White()
   }
 }
