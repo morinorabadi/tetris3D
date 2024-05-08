@@ -2,6 +2,8 @@ import { Container } from "inversify";
 import { TYPES } from "./Types";
 import Game from "../Game";
 import { Engine, Scene } from "@babylonjs/core";
+import Lights from "../Environment/Lights";
+import Table from "../Environment/Table";
 
 export default function createContainer() {
   console.log("createContainer");
@@ -25,8 +27,11 @@ export default function createContainer() {
     .bind<Scene>(TYPES.Scene)
     .toConstantValue(new Scene(container.get(TYPES.Engine)));
 
-  container.bind<Game>(TYPES.Game).to(Game).inSingletonScope();
+  container.bind<Lights>(TYPES.Lights).to(Lights);
+  container.bind<Table>(TYPES.Table).to(Table);
 
+  container.bind<Game>(TYPES.Game).to(Game).inSingletonScope();
+  
   container.get<Game>(TYPES.Game);
   return container;
 }

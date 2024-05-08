@@ -1,28 +1,23 @@
 import { inject, injectable } from "inversify";
 import { TYPES } from "./Ioc/Types";
-import {
-  ArcRotateCamera,
-  CreateBox,
-  Engine,
-  Scene,
-  Vector3,
-} from "@babylonjs/core";
+import { ArcRotateCamera, Engine, Scene, Vector3 } from "@babylonjs/core";
+import Lights from "./Environment/Lights";
+import Table from "./Environment/Table";
 
 @injectable()
 export default class Game {
   camera!: ArcRotateCamera;
+
+  @inject(TYPES.Lights) private lights!: Lights;
+  @inject(TYPES.Table) private Table!: Table;
+
   constructor(
     @inject(TYPES.Engine) public engine: Engine,
     @inject(TYPES.Scene) public scene: Scene
   ) {
     this.camera = new ArcRotateCamera("main", 0, 0, 4, Vector3.Zero());
 
-    const testBox = CreateBox("test");
-    this.engine.runRenderLoop(() => {
-      this.scene.render();
-      testBox.rotation.y += 0.001;
-      testBox.rotation.x += 0.002;
-    });
+    this.engine.runRenderLoop(() => this.scene.render());
 
     this.setupEventListeners();
   }

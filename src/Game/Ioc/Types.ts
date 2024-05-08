@@ -4,4 +4,6 @@ export const TYPES = {
   Engine: Symbol.for("Engine"),
   Scene: Symbol.for("Scene"),
   Camera: Symbol.for("Camera"),
+  Lights: Symbol.for("Lights"),
+  Table: Symbol.for("Table"),
 };
