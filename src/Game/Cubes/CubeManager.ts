@@ -3,6 +3,7 @@ import { TYPES } from "../Ioc/Types";
 import { Engine, Vector3 } from "@babylonjs/core";
 import Step from "../Step/Step";
 import Cube from "./Cube";
+import { CUBE_SIZE } from "../../constants/index.constant";
 
 @injectable()
 export default class CubeManager {
@@ -17,6 +18,6 @@ export default class CubeManager {
   private onStep() {
     this.test += 1;
     const cube = this.cubeFactory();
-    cube.updatePosition(new Vector3(this.test * 0.1, 0, 0));
+    cube.updatePosition(new Vector3(this.test * CUBE_SIZE, 0, 0));
   }
 }

@@ -17,7 +17,7 @@ export default class Game {
     @inject(TYPES.Engine) public engine: Engine,
     @inject(TYPES.Scene) public scene: Scene
   ) {
-    this.camera = new ArcRotateCamera("main", 0, 0, 8, Vector3.Zero());
+    this.camera = new ArcRotateCamera("main", 0, 0, 5, Vector3.Zero());
 
     this.engine.runRenderLoop(() => this.scene.render());
 
