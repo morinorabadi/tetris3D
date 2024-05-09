@@ -1,12 +1,22 @@
 import { inject, injectable } from "inversify";
 import { TYPES } from "../Ioc/Types";
-import { Engine } from "@babylonjs/core";
+import { Engine, Vector3 } from "@babylonjs/core";
 import Step from "../Step/Step";
+import Cube from "./Cube";
 
 @injectable()
 export default class CubeManager {
   @inject(TYPES.Engine) engine!: Engine;
+  @inject(TYPES.CubeFactory) cubeFactory!: () => Cube;
+
   constructor(@inject(TYPES.Step) public step: Step) {
-    this.step.onStepObservable.add(() => console.log("step"));
+    this.step.onStepObservable.add(this.onStep.bind(this));
+  }
+
+  test = 0;
+  private onStep() {
+    this.test += 1;
+    const cube = this.cubeFactory();
+    cube.updatePosition(new Vector3(this.test * 0.1, 0, 0));
   }
 }

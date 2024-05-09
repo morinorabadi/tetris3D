@@ -8,4 +8,6 @@ export const TYPES = {
   Table: Symbol.for("Table"),
   Step: Symbol.for("Step"),
   CubeManager: Symbol.for("CubeManager"),
+  Cube: Symbol.for("Cube"),
+  CubeFactory: Symbol.for("CubeFactory"),
 };

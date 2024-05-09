@@ -10,9 +10,9 @@ function Canvas() {
     if (gameContainer.current) return;
 
     gameContainer.current = createContainer();
-    return () => {
-      gameContainer.current?.unbindAll();
-    };
+    // return () => {
+    // gameContainer.current?.unbindAll();
+    // };
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import { Container } from "inversify";
+import { Container, interfaces } from "inversify";
 import { TYPES } from "./Types";
 import Game from "../Game";
 import { Engine, Scene } from "@babylonjs/core";
@@ -6,6 +6,7 @@ import Lights from "../Environment/Lights";
 import Table from "../Environment/Table";
 import Step from "../Step/Step";
 import CubeManager from "../Cubes/CubeManager";
+import Cube from "../Cubes/Cube";
 
 export default function createContainer() {
   console.log("createContainer");
@@ -31,6 +32,13 @@ export default function createContainer() {
 
   container.bind<Lights>(TYPES.Lights).to(Lights);
   container.bind<Table>(TYPES.Table).to(Table);
+
+  // Cube Stuff
+  container.bind<Cube>(TYPES.Cube).to(Cube);
+
+  container
+    .bind<interfaces.Factory<Cube>>(TYPES.CubeFactory)
+    .toAutoFactory<Cube>(TYPES.Cube);
 
   container.bind<Step>(TYPES.Step).to(Step).inSingletonScope();
 
